@@ -21,7 +21,8 @@ Dark mode
 Smooth scrolling and animations
 SEO-friendly HTML structure
 Accessible and user-friendly interface
-🛠️ Technologies
+
+**Technologies**
 HTML5
 CSS3
 JavaScript
@@ -30,6 +31,7 @@ CSS Grid
 Responsive Web Design
 Google Fonts
 Font Awesome
+
 **Design**
 
 The website uses a professional, technology-inspired colour palette:
