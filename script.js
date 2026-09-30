@@ -131,41 +131,33 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (bookingForm) {
-    bookingForm.addEventListener('submit', async (event) => {
+    bookingForm.addEventListener('submit', (event) => {
       event.preventDefault();
       if (!bookingForm.checkValidity()) {
         bookingForm.reportValidity();
         return;
       }
 
-      const submitButton = bookingForm.querySelector('button[type="submit"]');
-      const originalLabel = submitButton ? submitButton.textContent : '';
-      if (submitButton) {
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending…';
-      }
+      const formData = new FormData(bookingForm);
+      const getValue = (field) => String(formData.get(field) || '').trim();
+      const name = getValue('name');
+      const requestType = getValue('type');
+      const emailSubject = `Website ${requestType.toLowerCase()} request - ${name}`;
+      const emailBody = [
+        'Hello Luke,',
+        '',
+        `Request type: ${requestType}`,
+        `Name: ${name}`,
+        `Phone: ${getValue('phone')}`,
+        `Email: ${getValue('email')}`,
+        `Service: ${getValue('service')}`,
+        '',
+        'What is happening:',
+        getValue('message') || 'Not provided'
+      ].join('\n');
 
-      try {
-        const response = await fetch(bookingForm.action, {
-          method: 'POST',
-          body: new FormData(bookingForm),
-          headers: { Accept: 'application/json' }
-        });
-
-        if (response.ok) {
-          formSuccess.style.display = 'block';
-          bookingForm.reset();
-        } else {
-          alert("Sorry, something went wrong sending that — please call or WhatsApp instead.");
-        }
-      } catch (err) {
-        alert("Sorry, something went wrong sending that — please call or WhatsApp instead.");
-      } finally {
-        if (submitButton) {
-          submitButton.disabled = false;
-          submitButton.textContent = originalLabel;
-        }
-      }
+      window.location.href = `mailto:lukerebeiro@hotmail.co.uk?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+      if (formSuccess) formSuccess.style.display = 'block';
     });
   }
 
