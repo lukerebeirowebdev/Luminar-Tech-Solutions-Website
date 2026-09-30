@@ -131,15 +131,41 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (bookingForm) {
-    bookingForm.addEventListener('submit', (event) => {
+    bookingForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       if (!bookingForm.checkValidity()) {
         bookingForm.reportValidity();
         return;
       }
 
-      formSuccess.style.display = 'block';
-      bookingForm.reset();
+      const submitButton = bookingForm.querySelector('button[type="submit"]');
+      const originalLabel = submitButton ? submitButton.textContent : '';
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending…';
+      }
+
+      try {
+        const response = await fetch(bookingForm.action, {
+          method: 'POST',
+          body: new FormData(bookingForm),
+          headers: { Accept: 'application/json' }
+        });
+
+        if (response.ok) {
+          formSuccess.style.display = 'block';
+          bookingForm.reset();
+        } else {
+          alert("Sorry, something went wrong sending that — please call or WhatsApp instead.");
+        }
+      } catch (err) {
+        alert("Sorry, something went wrong sending that — please call or WhatsApp instead.");
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalLabel;
+        }
+      }
     });
   }
 
