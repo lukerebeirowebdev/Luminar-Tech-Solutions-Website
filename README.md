@@ -116,3 +116,5 @@ This project is intended as a personal/business portfolio project. Please contac
 
 Lumina Tech Solutions
 Fast. Reliable. Professional IT Support.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/38f91f38-1ce3-433d-af22-aaced8fafb7b/deploy-status)](https://app.netlify.com/projects/luminar-tech-solutions-website/deploys)
