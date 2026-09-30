@@ -32,6 +32,15 @@ Responsive Web Design
 Google Fonts
 Font Awesome
 
+**Build and Deployment**
+
+Use Node.js 22 or later. Run `npm ci` to install the project, then
+`npm run build` to copy the website and image assets into `dist/`.
+The build requires no third-party dependencies.
+
+Netlify uses the build command and publish directory in `netlify.toml`
+to build and deploy the static website automatically.
+
 **Design**
 
 The website uses a professional, technology-inspired colour palette:
