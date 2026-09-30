@@ -32,6 +32,10 @@ Responsive Web Design
 Google Fonts
 Font Awesome
 
+**Netlify Deployment**
+
+This is a static HTML, CSS, and JavaScript site with no package installation or build step. The root-level `netlify.toml` disables the build command and publishes the repository root, where `index.html`, `style.css`, and `script.js` are located. These settings override the Netlify UI build settings; neither `build` nor `npm run build` is required, and there is no `public` output directory.
+
 **Design**
 
 The website uses a professional, technology-inspired colour palette:
