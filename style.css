@@ -1316,6 +1316,7 @@ details p {
   font-weight: 600;
   font-size: 0.95rem;
   color: var(--heading);
+  overflow-wrap: anywhere;
 }
 
 .social-row {
@@ -1621,6 +1622,27 @@ footer ul li a:hover {
 @media (max-width: 680px) {
   section {
     padding: 70px 6vw;
+  }
+
+  .book-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    padding: 24px;
+    border-radius: 14px;
+  }
+
+  .book-wrap > * {
+    min-width: 0;
+  }
+
+  .contact-info-list li > div:last-child {
+    min-width: 0;
+  }
+
+  .payment-contact .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
   }
 
   header {
