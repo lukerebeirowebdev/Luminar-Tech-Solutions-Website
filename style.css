@@ -1751,6 +1751,10 @@ footer ul li a:hover {
     display: flex;
   }
 
+  .hamburger.open {
+    visibility: hidden;
+  }
+
   .check-grid,
   .services-grid,
   .pricing-grid,
