@@ -715,7 +715,7 @@ header.scrolled nav {
 }
 
 .about-photo {
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 5 / 5;
   border-radius: 16px;
   background: linear-gradient(160deg, var(--blue), var(--navy) 70%);
   position: relative;
@@ -760,12 +760,12 @@ header.scrolled nav {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--dark-grey);
+  color: var(--card-bg);
   font-family: 'JetBrains Mono', monospace;
 }
 
 .about-photo .tag h3 {
-  color: var(--navy);
+  color: var(--card-bgy);
   font-size: 1.4rem;
   margin-top: 6px;
 }
