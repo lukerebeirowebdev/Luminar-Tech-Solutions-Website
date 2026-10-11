@@ -760,12 +760,12 @@ header.scrolled nav {
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #9fd9e8;
+  color: var(--dark-grey);
   font-family: 'JetBrains Mono', monospace;
 }
 
 .about-photo .tag h3 {
-  color: #fff;
+  color: var(--navy);
   font-size: 1.4rem;
   margin-top: 6px;
 }
